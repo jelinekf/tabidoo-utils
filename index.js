@@ -1,19 +1,17 @@
 (function () {
+  function init(doo) {
+    console.log("model id:", doo?.model?.id);
+  }
+
   function helloFromLibrary(name) {
     const message = `Hello ${name}, library is running`;
     console.log(message);
     return message;
   }
 
-  // export do globálního scope
   if (typeof window !== "undefined") {
-    window.TabidooUtils = {
-      helloFromLibrary,
-    };
-  } else {
-    console.log("TabidooUtils loaded outside browser");
+    window.TabidooUtils = { init, helloFromLibrary };
   }
 })();
 
-console.log(doo.model.id);
 
